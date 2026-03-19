@@ -1,36 +1,72 @@
 # HCP CRM - AI-First Healthcare CRM
 
-AI-powered Customer Relationship Management (CRM) system for Healthcare
-Professionals (HCPs), designed for pharma field teams to log interactions,
-analyze sentiment, and generate follow-up actions.
+An AI-powered Customer Relationship Management (CRM) system designed for
+Healthcare Professionals (HCPs). This platform helps pharma field teams log
+interactions, analyze sentiment, and generate intelligent follow-ups using a
+LangGraph-based AI agent with Groq LLM.
+
+## Overview
+
+This project upgrades a traditional CRM into an AI-driven workflow where user
+inputs (form or chat) are processed by an LLM-powered agent to automate
+interaction logging, record updates, and insight generation.
 
 ## Tech Stack
 
-- Frontend: React, Redux Toolkit
-- Backend: FastAPI, SQLAlchemy
-- AI: LangGraph + Groq
-- Database: MySQL
+Frontend
+- React.js
+- Redux Toolkit
 
-## Core Features
+Backend
+- FastAPI
+- SQLAlchemy
 
-- Log HCP interactions from a structured form
-- Log interactions from natural language chat
-- View interaction history
-- Analyze sentiment for interactions
-- Generate AI follow-up suggestions
+AI Layer
+- LangGraph
+- Groq LLM
+
+Database
+- MySQL
+
+## AI Agent Architecture
+
+The system uses a LangGraph-based agent integrated with Groq LLM. Instead of
+manual operations, the AI understands user intent and decides which tool to
+execute.
+
+### Agent Tools
+
+- Log Interaction: Store HCP interaction details
+- Edit Interaction: Update existing interaction records
+- Interaction History Viewer: Retrieve past interactions
+- Follow-up Suggestion: Recommend next actions
+- Sentiment Analysis: Analyze interaction tone
+
+## Workflow
+
+User Input (Form/Chat) -> Groq LLM -> LangGraph Agent -> Tool Execution ->
+Database -> Response
+
+## Features
+
+- Log HCP interactions via structured form
+- Log interactions using natural language chat
+- View complete interaction history
+- AI-powered sentiment analysis
+- Intelligent follow-up recommendations
 
 ## Project Structure
 
 ```text
 AIVOA/
-	backend/
-		app/
-			agents/
-			models/
-			routers/
-			tools/
-	frontend/
-		src/
+  backend/
+    app/
+      agents/
+      models/
+      routers/
+      tools/
+  frontend/
+    src/
 ```
 
 ## Backend Setup
@@ -41,8 +77,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-API docs:
-
+API Docs:
 - http://localhost:8000/docs
 
 ## Frontend Setup
@@ -81,6 +116,18 @@ DB_NAME=hcp_crm
 - `PUT /api/v1/edit-interaction/{interaction_id}`
 - `POST /api/v1/suggest-followups/{interaction_id}`
 - `POST /api/v1/analyze-sentiment/{interaction_id}`
+
+## Key Highlight
+
+This is not a traditional CRUD CRM. It is an AI-first system where an
+LLM-driven agent dynamically selects actions, making the workflow more
+intelligent and reducing manual effort.
+
+## Author
+
+Tipparam Sainath  
+B.Tech CSE (Data Science)  
+MLR Institute of Technology
 
 ## License
 
